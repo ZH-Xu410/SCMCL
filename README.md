@@ -6,7 +6,13 @@
 # SCMCL - Official Implementation
 ## Learning Symmetrical Cross-Modal Correlations for Speech-Preserving Facial Expression Manipulation
 
- 
+<div>
+<a href='https://github.com/ZH-Xu410/SCMCL'><img src='https://img.shields.io/badge/Paper-PDF-blue'></a>&nbsp;  
+<a href='https://github.com/ZH-Xu410/SCMCL'><img src='https://img.shields.io/badge/Project-Page-green'></a>&nbsp; 
+<a href='https://drive.google.com/file/d/1CTjWl--IDxa2CyogtfLVTY518C8cex_u/view?usp=sharing'><img src='https://img.shields.io/badge/Models-Drive-orange'></a>
+</div>
+
+<br>
 
 ![scmcl](figures/scmcl.gif)
 
@@ -26,7 +32,7 @@ Follow the instructions in [DECA](https://github.com/YadiraF/DECA) (under the *P
 
 ## 2. Download Pretrained Models
 
-[Release]()
+[Google Drive](https://drive.google.com/file/d/1CTjWl--IDxa2CyogtfLVTY518C8cex_u/view?usp=sharing)
 
 
 <details><summary>Model Details</summary>
@@ -188,4 +194,4 @@ python postprocessing/images2video.py --imgs_path <images_path> --out_path <out_
 
 ## Acknowledgements
 
-Codes are borrowed heavily from [NED](https://github.com/foivospar/NED).  We thank for their wonderful work.
+Codes are borrowed heavily from [NED](https://github.com/foivospar/NED).  We thank them for their wonderful work.
