@@ -23,11 +23,37 @@ Create a conda environment and install the requirements.
 
 Follow the instructions in [DECA](https://github.com/YadiraF/DECA) (under the *Prepare data* section) to acquire the 3 files ('generic_model.pkl', 'deca_model.tar', 'FLAME_albedo_from_BFM.npz') and place them under "./DECA/data".
 
-## 2. Prepare Dataset
+
+## 2. Download Pretrained Models
+
+[Release]()
+
+
+<details><summary>Model Details</summary>
+
+| Model | Description
+| :--- | :----------
+|scmcl_ckpts/segmentation/lfw_figaro_unet_256_2_0_segmentation_v1.pth | Segmentor weights for preprocessing.
+|scmcl_ckpts/pretrained_weights/manipulator/20_nets.pth | Pretrain weights for manipulator.
+|scmcl_ckpts/pretrained_weights/renderer/\<actor\>/05_net_G.pth | Pretrain weights for renderer.
+|scmcl_ckpts/manipulator/MEAD/05_nets_finetuned.pth | Manipulator weights in SCMCL trained on the MEAD dataset.
+|scmcl_ckpts/manipulator/RAVDESS/05_nets_finetuned.pth | Manipulator weights in SCMCL trained on the RAVDESS dataset.
+|scmcl_ckpts/renderer/\<actor\>/01_net_G.pth | Renderer weights in SCMCL.
+|scmcl_ckpts/scmc/audio/last.pth | Audio similarity network weights.
+|scmcl_ckpts/scmc/3dmm/last.pth | 3DMM similarity network weights.
+|scmcl_ckpts/scmc/image/last.pth | Image similarity network weights.
+|scmcl_ckpts/scmc/3dmm_finetune/last.pth | Joint-optimized weights of audio-3DMM similarity networks.
+|scmcl_ckpts/scmc/image_finetune/last.pth | Joint-optimized weights of audio-image similarity networks.
+|scmcl_ckpts/scmc/dists_for_3dmm_\<dataset\>/dists.pkl | Offline calculated audio similarities used to train the manipulator.
+|scmcl_ckpts/scmc/dists_for_image_\<dataset\>/dists.pkl | Offline calculated audio similarities used to train the renderer.
+</details>
+
+
+## 3. Prepare Dataset
 
 Download the [MEAD](https://wywu.github.io/projects/MEAD/MEAD.html) and [RAVDESS](https://zenodo.org/records/1188976) dataset. 
 
-### 2.1 Reconstruct 3DMM coefficients
+### 3.1 Reconstruct 3DMM coefficients
 We change the directory structure of the RAVDESS dataset to be consistent with that of the MEAD dataset.
 
 The structure of the dataset should look like this:
@@ -46,8 +72,10 @@ python preprocessing/reconstruct_DECA.py --root <MEAD_root> --actors M003 M009 W
 python preprocessing/reconstruct_DECA.py --root <RAVDESS_root> --actors Actor_01 Actor_02 Actor_03 Actor_04 Actor_05 Actor_06
 ```
 
-### 2.2 Preprocess data for renderer
-We follow the pipeline of NED to prepare data for renderer. To train or test the method on a specific subject, first create a folder for this subject and place the video(s) of this subject into a "videos" subfolder. 
+### 3.2 Preprocess data for renderer
+We follow the pipeline of NED to prepare data for renderer. Place the segmentor weights "scmcl_ckpts/segmentation/lfw_figaro_unet_256_2_0_segmentation_v1.pth" under "preprocessing/segmentation/".
+
+To train or test the method on a specific subject, first create a folder for this subject and place the video(s) of this subject into a "videos" subfolder. 
 
 For example, for testing the method on M003's clip, a structure similar to the following must be created:
 ```
@@ -102,31 +130,7 @@ After successfull execution, the following structure will be created:
 ```
 
 
-## 3. Download Pretrained Models
-
-[Release]()
-
-
-
-<details><summary>Model Details</summary>
-
-| Model | Description
-| :--- | :----------
-|scmcl_ckpts/pretrained_weights/manipulator/20_nets.pth | Pretrain weights for manipulator.
-|scmcl_ckpts/pretrained_weights/renderer/\<actor\>/05_net_G.pth | Pretrain weights for renderer.
-|scmcl_ckpts/manipulator/MEAD/05_nets_finetuned.pth | Manipulator weights in SCMCL trained on the MEAD dataset.
-|scmcl_ckpts/manipulator/RAVDESS/05_nets_finetuned.pth | Manipulator weights in SCMCL trained on the RAVDESS dataset.
-|scmcl_ckpts/renderer/\<actor\>/01_net_G.pth | Renderer weights in SCMCL.
-|scmcl_ckpts/scmc/audio/last.pth | Audio similarity network weights.
-|scmcl_ckpts/scmc/3dmm/last.pth | 3DMM similarity network weights.
-|scmcl_ckpts/scmc/image/last.pth | Image similarity network weights.
-|scmcl_ckpts/scmc/3dmm_finetune/last.pth | Joint-optimized weights of audio-3DMM similarity networks.
-|scmcl_ckpts/scmc/image_finetune/last.pth | Joint-optimized weights of audio-image similarity networks.
-|scmcl_ckpts/scmc/dists_for_3dmm_\<dataset\>/dists.pkl | Offline calculated audio similarities used to train the manipulator.
-|scmcl_ckpts/scmc/dists_for_image_\<dataset\>/dists.pkl | Offline calculated audio similarities used to train the renderer.
-</details>
-
-## 3. Training
+## 4. Training
 
 - Train SCMC metric on the MEAD dataset.
   ```bash
@@ -175,7 +179,7 @@ After successfull execution, the following structure will be created:
 
    Please modify the args when training on the RAVDESS dataset. The model weight will be saved to "<checkpoints_dir>/export/01_net_G.pth".
 
-## 4. Test
+## 5. Test
 ```bash
 ./scripts/test.sh <args>
 
