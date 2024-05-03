@@ -16,7 +16,7 @@
 
 
 <div align='center'>
-<img src='docs/static/images/scmcl.gif' width='80%'/>
+<img src='docs/static/images/scmcl.gif' width='60%'/>
 </div>
 
 
