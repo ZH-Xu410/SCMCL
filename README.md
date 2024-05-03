@@ -15,9 +15,8 @@
 <br>
 
 
-<div align='center'>
 <img src='docs/static/images/scmcl.gif' width='60%'/>
-</div>
+
 
 
 ## 1. Installation
