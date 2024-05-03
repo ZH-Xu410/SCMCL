@@ -7,15 +7,17 @@
 ## Learning Symmetrical Cross-Modal Correlations for Speech-Preserving Facial Expression Manipulation
 
 <div>
-<a href='https://github.com/ZH-Xu410/SCMCL'><img src='https://img.shields.io/badge/Paper-PDF-blue'></a>&nbsp;  
-<a href='https://github.com/ZH-Xu410/SCMCL'><img src='https://img.shields.io/badge/Project-Page-green'></a>&nbsp; 
+<a href='#'><img src='https://img.shields.io/badge/Paper-PDF-blue'></a>&nbsp;  
+<a href='https://ZH-Xu410.github.io/SCMCL'><img src='https://img.shields.io/badge/Project-Page-green'></a>&nbsp; 
 <a href='https://drive.google.com/file/d/1CTjWl--IDxa2CyogtfLVTY518C8cex_u/view?usp=sharing'><img src='https://img.shields.io/badge/Models-Drive-orange'></a>
 </div>
 
 <br>
 
-![scmcl](figures/scmcl.gif)
 
+<div align='center'>
+<img src='docs/static/images/scmcl.gif' width='80%'/>
+</div>
 
 
 ## 1. Installation
@@ -64,7 +66,7 @@ We change the directory structure of the RAVDESS dataset to be consistent with t
 
 The structure of the dataset should look like this:
 <div align='left'>
-    <img src="figures/mead_structure.png" alt="MEAD structure" width="300" />
+    <img src="docs/static/images/mead_structure.png" alt="MEAD structure" width="300" />
 </div>
 
 Then we reconstruct 3DMM for specific actors.
