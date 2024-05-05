@@ -10,6 +10,7 @@
 <a href='#'><img src='https://img.shields.io/badge/Paper-PDF-blue'></a>&nbsp;  
 <a href='https://ZH-Xu410.github.io/SCMCL'><img src='https://img.shields.io/badge/Project-Page-green'></a>&nbsp; 
 <a href='https://drive.google.com/file/d/1CTjWl--IDxa2CyogtfLVTY518C8cex_u/view?usp=sharing'><img src='https://img.shields.io/badge/Models-Drive-orange'></a>
+<a href='https://zh-xu410.github.io/SCMCL-Supp/'><img src='https://img.shields.io/badge/Videos-Page-default'></a>
 </div>
 
 <br>
